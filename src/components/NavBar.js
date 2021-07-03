@@ -39,7 +39,7 @@ export default function NavBar() {
         </nav>
         <div className="inline-flex py-3 px-3 my-6">
           <SocialIcon url="https://www.linkedin.com/in/zachjjohns/" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}}/>
-          <SocialIcon url="" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}}/>
+          <SocialIcon url="https://github.com/zachjjohns" className="mr-4" target="_blank" fgColor="#fff" style={{ height: 35, width: 35}}/>
         </div>
       </div>
     </header>
