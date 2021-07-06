@@ -21,5 +21,24 @@ export default function Post() {
       .catch(console.error);
   }, []);
   
-  return 
+  return (
+    <main>
+      <section>
+        <h1></h1>
+        <h2></h2>
+        <div>
+          <article>
+            <Link>
+            <span>
+              <img />
+              <span>
+                <h3></h3>
+              </span>
+            </span>
+            </Link>
+          </article>
+        </div>
+      </section>
+    </main>
+  )
 }
