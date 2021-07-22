@@ -51,11 +51,18 @@ export default function SinglePost() {
                   alt={singlePost.name}
                   className="w-10 h-10 rounded-full"
                 />
-                <p></p>
+                <p className="cursive flex items-center pl-2 text-2xl">
+                  {singlePost.name}
+                </p>
               </div>
             </div>
           </div>
-          <img />
+          <img
+            src={singlePost.mainImage.asset.url}
+            alt={singlePost.title}
+            className="w-full object-cover rounded-t"
+            style={{ height: "400px" }}
+          />
         </header>
         <div>BLOCK CONTENT</div>
       </article>
