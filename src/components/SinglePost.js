@@ -9,8 +9,30 @@ function urlFor(source) {
 }
 
 export default function SinglePost() {
-  const [SinglePost, setSinglePost] = useState(null);
+  const [singlePost, setSinglePost] = useState(null);
   const { slug } = useParams();
 
-  return <h1>SinglePost page!</h1>
+  useEffect(() => {
+    sanityClient.fetch(`*[slug.current == "${slug}"]{
+      title,
+      _id,
+      slug,
+      mainImage{
+        asset->{
+          _id,
+          url
+        }
+      },
+      body,
+      "name": author->name,
+      "authorImage": author->image
+    }`).then((data) => setSinglePost(data[0]))
+    .catch(console.error);
+  }, [slug]);
+
+  if (!singlePost) return <div>Loading...</div>;
+
+  return (
+    
+  )
 }
