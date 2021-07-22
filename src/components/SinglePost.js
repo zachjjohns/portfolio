@@ -33,6 +33,19 @@ export default function SinglePost() {
   if (!singlePost) return <div>Loading...</div>;
 
   return (
-    
+    <main>
+      <article>
+        <header>
+          <div>
+            <div>
+              <h1></h1>
+              <div><img /></div>
+              <p></p>
+            </div>
+          </div>
+          <img />
+        </header>
+      </article>
+    </main>
   )
 }
