@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client";
+import dravania from "../dravania.jpeg";
 
 export default function About() {
   const [author, setAuthor] = useState(null);
@@ -19,5 +20,10 @@ export default function About() {
 
   if (!author) return <div>Loading...</div>
 
-  return <h1>About page!</h1>;
+  return (
+    <main>
+      
+    </main>
+
+  );
 }
