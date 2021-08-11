@@ -22,7 +22,18 @@ export default function About() {
 
   return (
     <main>
-      
+      <img />
+      <div>
+        <section>
+          <img />
+          <div>
+            <h1></h1>
+            <div>
+              BLOCK CONTENT
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
   );
