@@ -42,7 +42,7 @@ export default function Project() {
         <section className="grid grid-cols-2 gap-8">
           {projectData &&
             projectData.map((project, index) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16 background-image">
+              <article className="relative rounded-lg shadow-xl bg-white p-16 bg-project">
                 <img
                   src={urlFor(project.mainImage).url()}
                   alt={project.title}
