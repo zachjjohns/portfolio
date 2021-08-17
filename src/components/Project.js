@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(sanityClient);
+function urlFor(source) {
+  return builder.image(source);
+}
 
 export default function Project() {
   const [projectData, setProjectData] = useState(null);
@@ -10,7 +16,12 @@ export default function Project() {
         `*[_type == "project"]{
       title,
       date,
-      place,
+      mainImage{
+        asset->{
+          _id,
+          url
+        }
+      },
       description,
       projectType,
       link,
@@ -32,6 +43,11 @@ export default function Project() {
           {projectData &&
             projectData.map((project, index) => (
               <article className="relative rounded-lg shadow-xl bg-white p-16">
+                <img
+                  src={urlFor(project.mainImage).url()}
+                  alt={project.title}
+                  className=""
+                />
                 <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
                   <a
                     href={project.link}
@@ -46,10 +62,6 @@ export default function Project() {
                   <span>
                     <strong className="font-bold">Finished on </strong>:{" "}
                     {new Date(project.date).toLocaleDateString()}
-                  </span>
-                  <span>
-                    <strong className="font-bold">Company</strong>:{" "}
-                    {project.place}
                   </span>
                   <span>
                     <strong className="font-bold">Type</strong>:{" "}
