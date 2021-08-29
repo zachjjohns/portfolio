@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(sanityClient);
+function urlFor(source) {
+  return builder.image(source);
+}
 
 export default function Project() {
   const [projectData, setProjectData] = useState(null);
@@ -10,7 +16,12 @@ export default function Project() {
         `*[_type == "project"]{
       title,
       date,
-      place,
+      mainImage{
+        asset->{
+          _id,
+          url
+        }
+      },
       description,
       projectType,
       link,
@@ -22,7 +33,7 @@ export default function Project() {
   }, []);
 
   return (
-    <main className="bg-green-100 min-h-screen p-12">
+    <main className="bg-blue-100 min-h-screen p-12">
       <section className="container mx-auto">
         <h1 className="text-5xl flex justify-center cursive">My Projects</h1>
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
@@ -31,7 +42,12 @@ export default function Project() {
         <section className="grid grid-cols-2 gap-8">
           {projectData &&
             projectData.map((project, index) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16">
+              <article className="relative rounded-lg shadow-xl bg-white p-16 bg-project" key={index}>
+                <img
+                  src={urlFor(project.mainImage).url()}
+                  alt={project.title}
+                  className=""
+                />
                 <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
                   <a
                     href={project.link}
@@ -48,10 +64,6 @@ export default function Project() {
                     {new Date(project.date).toLocaleDateString()}
                   </span>
                   <span>
-                    <strong className="font-bold">Company</strong>:{" "}
-                    {project.place}
-                  </span>
-                  <span>
                     <strong className="font-bold">Type</strong>:{" "}
                     {project.projectType}
                   </span>
@@ -62,7 +74,7 @@ export default function Project() {
                     href={project.link}
                     rel="noopener noreferrer"
                     target="_blank"
-                    className="text-red-500 font-bold hover:underline hover:text-red-400 text-xl"
+                    className="text-blue-500 font-bold hover:underline hover:text-blue-400 text-xl"
                   >
                     View the Project{" "}
                     <span role="img" aria-label="right pointer">
