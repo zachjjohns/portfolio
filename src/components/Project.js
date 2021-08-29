@@ -33,7 +33,7 @@ export default function Project() {
   }, []);
 
   return (
-    <main className="bg-green-100 min-h-screen p-12">
+    <main className="bg-blue-100 min-h-screen p-12">
       <section className="container mx-auto">
         <h1 className="text-5xl flex justify-center cursive">My Projects</h1>
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
@@ -42,7 +42,7 @@ export default function Project() {
         <section className="grid grid-cols-2 gap-8">
           {projectData &&
             projectData.map((project, index) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16 bg-project">
+              <article className="relative rounded-lg shadow-xl bg-white p-16 bg-project" key={index}>
                 <img
                   src={urlFor(project.mainImage).url()}
                   alt={project.title}
@@ -74,7 +74,7 @@ export default function Project() {
                     href={project.link}
                     rel="noopener noreferrer"
                     target="_blank"
-                    className="text-red-500 font-bold hover:underline hover:text-red-400 text-xl"
+                    className="text-blue-500 font-bold hover:underline hover:text-blue-400 text-xl"
                   >
                     View the Project{" "}
                     <span role="img" aria-label="right pointer">
