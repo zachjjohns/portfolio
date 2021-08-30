@@ -37,18 +37,18 @@ export default function Project() {
       <section className="container mx-auto">
         <h1 className="text-5xl flex justify-center cursive">My Projects</h1>
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
-          Welcome to my projects page!
+          Personal, school, and everything in-between
         </h2>
         <section className="grid grid-cols-2 gap-8">
           {projectData &&
             projectData.map((project, index) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16 bg-project" key={index}>
+              <article className="relative rounded-lg shadow-xl bg-white p-12 bg-project" key={index}>
                 <img
                   src={urlFor(project.mainImage).url()}
                   alt={project.title}
                   className=""
                 />
-                <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
+                <h3 className="text-gray-800 text-3xl font-bold mb-2 mt-2 hover:text-red-700">
                   <a
                     href={project.link}
                     alt={project.title}

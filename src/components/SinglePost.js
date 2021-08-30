@@ -9,6 +9,19 @@ function urlFor(source) {
   return builder.image(source);
 }
 
+const serializers = {
+  marks: {
+    link: ({ children, mark }) =>
+      mark.blank ? (
+        <u><a href={mark.href} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a></u>
+      ) : (
+        <u><a href={mark.href}>{children}</a></u>
+      ),
+  },
+};
+
 export default function SinglePost() {
   const [singlePost, setSinglePost] = useState(null);
   const { slug } = useParams();
@@ -39,11 +52,11 @@ export default function SinglePost() {
 
   return (
     <main className="bg-gray-200 min-h-screen p-12">
-      <article className="container shadow-lg mx-auto bg-green-100 rounded-lg">
+      <article className="container shadow-lg mx-auto bg-blue-100 rounded-lg">
         <header className="relative">
           <div className="absolute h-full w-full flex items-center justify-center p-8">
             <div className="bg-white bg-opacity-75 rounded p-12">
-              <h1 className="cursive text-3xl lg:text-6xl mb-4">
+              <h1 className="cursive text-3xl lg:text-6xl mb-4 text-center">
                 {singlePost.title}
               </h1>
               <div className="flex justify-center text-gray-800">
@@ -62,7 +75,7 @@ export default function SinglePost() {
             src={singlePost.mainImage.asset.url}
             alt={singlePost.title}
             className="w-full object-cover rounded-t"
-            style={{ height: "400px" }}
+            style={{ height: "450px" }}
           />
         </header>
         <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
@@ -70,6 +83,8 @@ export default function SinglePost() {
             blocks={singlePost.body}
             projectId="w5oew6cm"
             dataset="production"
+            imageOptions={{ w: 700, h: 500, fit: "max" }}
+            serializers={serializers}
           />
         </div>
       </article>
