@@ -13,11 +13,11 @@ const serializers = {
   marks: {
     link: ({ children, mark }) =>
       mark.blank ? (
-        <a href={mark.href} target="_blank" rel="noopener noreferrer">
+        <u><a href={mark.href} target="_blank" rel="noopener noreferrer">
           {children}
-        </a>
+        </a></u>
       ) : (
-        <a href={mark.href}>{children}</a>
+        <u><a href={mark.href}>{children}</a></u>
       ),
   },
 };
@@ -52,7 +52,7 @@ export default function SinglePost() {
 
   return (
     <main className="bg-gray-200 min-h-screen p-12">
-      <article className="container shadow-lg mx-auto bg-green-100 rounded-lg">
+      <article className="container shadow-lg mx-auto bg-blue-100 rounded-lg">
         <header className="relative">
           <div className="absolute h-full w-full flex items-center justify-center p-8">
             <div className="bg-white bg-opacity-75 rounded p-12">
