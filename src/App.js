@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import SinglePost from './components/SinglePost';
@@ -8,7 +8,7 @@ import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <NavBar />
       <Switch>
         <Route component={Home} path='/' exact />
@@ -17,7 +17,7 @@ function App() {
         <Route component={Post} path='/post' />
         <Route component={Project} path='/project' />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
