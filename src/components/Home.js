@@ -7,7 +7,7 @@ export default function Home() {
       <img 
         src={image} 
         alt="Mountain scene with starry sky" 
-        className="absolute object-cover w-full h-full"
+        className="absolute object-none md:object-cover w-full h-full"
       />
       <section className="relative flex justify-center min-h-screen pt-12 lg:pt-64 px-8">
         <h1 
