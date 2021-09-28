@@ -11,7 +11,7 @@ export default function NavBar() {
             to='/' 
             exact
             activeClassName="text-white"
-            className="inflex-flex items-center py-8 px-3 mr-4 text-blue-300 hover:text-blue-500 text-4xl font-bold cursive tracking-widest"
+            className="inflex-flex items-center py-8 px-3 mr-4 text-blue-300 hover:text-blue-500 text-2xl sm:text-4xl titillium font-bold "
           >
             Zach Johnson
           </NavLink>
